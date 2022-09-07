@@ -1,0 +1,108 @@
+{%- liquid
+    assign darken_image = section.settings.darken-image
+    assign image = section.settings.image
+    assign image_size = section.settings.image-size
+    assign cover_image = false
+    if image_size == 'aspect-ratio' and image
+      assign cover_image = false
+    else
+      assign cover_image = true
+    endif
+-%}
+  
+<div class="contact-page--root"
+    id="contact-page-root"
+    data-section-type="contact-page">
+    <div class="contact-page--wrapper container">
+      <div class="contact-page--header d-none">
+        <h1 data-item="section-heading">
+          {{ page.title }}
+        </h1>
+      </div>
+  
+      
+        <div class="contact-page--left-column">
+          <div class="featured-content--root" 
+                data-container-width="6" 
+                data-cover-image="{{ cover_image }}"
+                data-darken-image="{{ darken_image }}" 
+                data-has-image="{% if image %}true{% else %}false{% endif %}"
+                data-mobile-overlay="true"
+                data-image-height="6"
+                data-container-width="6">
+                <div class="featured-content--container">
+                    {% if image %}
+                        <div class="featured-content--image">
+                            {%
+                            render "framework--image",
+                            image: image,
+                            full_width: true,
+                            cover: cover_image,
+                            cover_mobile: true,
+                            darken: darken_image,
+                            darken_mobile: darken_image
+                            %}
+                        </div>
+                    {% endif %}
+                </div>
+          </div>
+        </div>
+  
+      <div class="contact-page--right-column">
+        <div class="contact-page--form">
+  
+          <div class="contact-page--form-error"></div>
+  
+            <h3 class="contact-page--form-title">{{ page.title }}</h3>
+            
+            <div data-item="rte-content" style="padding-bottom: 32px;">
+                {% if page.content != blank %}
+                    {{ page.content }}
+                {% endif %}
+              	{% if section.settings.text != blank %}
+                    {{ section.settings.text }}
+                {% endif %}
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "About Us",
+        "settings": [
+            {
+              "id": "darken-image",
+              "label": "Darken image",
+              "type": "checkbox",
+              "default": true,
+              "info": "Can enhance text visibility"
+            },
+            {
+              "type": "header",
+              "content": "Content"
+            },
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+            },
+            {
+              "id": "image-size",
+              "label": "Image size",
+              "type": "select",
+              "options": [
+                { "label": "Fit to container", "value": "fit-to-container" },
+                { "label": "Preserve aspect ratio", "value": "aspect-ratio" }
+              ],
+              "default": "fit-to-container"
+            },
+            {
+              "type": "richtext",
+              "id": "text",
+              "label": "Text"
+            }
+        ]
+    }
+{% endschema %}

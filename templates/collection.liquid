@@ -1,0 +1,21 @@
+{% render 'shogun-products', content: collection %}
+{{collection.metafields.shogun.above}}
+{% assign col_found = false %}
+{% if settings.password != blank and settings.collection_protected != blank %}
+{% assign col = settings.collection_protected %}
+{% if collection.handle contains col.handle %}
+{% assign col_found = true %}
+{% endif %}
+{% endif %}
+
+<div class="collection--root{% if col_found == true %} col_found{% endif %}" data-js-class="Collection"{% if col_found == true %} style="display:none;"{% endif %}>
+  {%- liquid
+    section 'framework--collection--header'
+    section 'framework--collection--header-promotion'
+    section 'framework--collection--navigation'
+    section 'framework--collection--body'
+    section 'framework--recent-products'
+    section 'framework--collection--footer-promotion'
+  -%}
+</div>
+{{collection.metafields.shogun.below}}

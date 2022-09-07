@@ -1,0 +1,147 @@
+{% if settings.password != blank and settings.collection_protected != blank %}
+{% assign collection = settings.collection_protected %}
+{% assign pro_found = false %}
+
+{% for col in product.collections %}
+{% if col.handle == collection.handle %}
+{% assign pro_found = true %}
+{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{%- liquid
+  assign similar_products_heading = section.settings.product-similar-products-heading
+  assign show_section = section.settings.product-similar-products-show
+  assign max_products = 4
+  assign similar_products_subheading = section.settings.product-similar-products-subheading
+  assign text_alignment = section.settings.text_alignment
+-%}
+
+{% if show_section %}
+
+  <div  {% if pro_found == true %} style="display:none;"{% endif %}
+    class="product-recommendations--root{% if pro_found == true %} pro_found{% endif %}"
+    data-product-id="{{ product.id }}"
+    data-max-products="{{ max_products }}"
+    data-js-class="ProductRecommendations"
+  >
+    {% if recommendations.products_count > 0 %}
+      <div
+        class="product-recommendations--container"
+        data-container="section"
+      >
+        {% if similar_products_heading != blank %}
+          <div class="product-recommendations--header" data-container="block">
+            <h2 class="product-recommendations--title" data-item="section-heading" data-title-alignment="{{ text_alignment }}">
+              {{ similar_products_heading }}
+            </h2>
+            <h3 class="product-recommendations--sub-title" data-title-alignment="{{ text_alignment }}">
+              {{ similar_products_subheading }}
+            </h3>
+          </div>
+        {% endif %}
+
+        <div
+             class="product-recommendations--body"
+             data-container="panel"
+             data-columns="4"
+             data-mobile-columns="2"
+             >
+          {%if product.metafields.my_fields.style_1 != blank or product.metafields.my_fields.style_2 != blank%}
+
+          {%for i in (1..4)%}
+          {%- capture style -%}style_{{i}}{%- endcapture -%}
+          
+          {% assign product_url =  product.metafields.my_fields[style] %}
+          {%if product_url != blank %}
+          {%
+            render 'framework--product--item',
+            product: all_products[product_url],
+            unique_handle: recommendation,
+            section_id: section.id
+          %}
+		{%endif%}
+          {%endfor%}
+
+          {%else%}
+          
+          {% assign counter = 0 | times: 0 %}
+          {% assign break_at = 1 | times: max_products %}
+          {% assign col_pro = settings.collection_protected %}
+
+          {% for product in recommendations.products %}
+          
+          {% assign found = 'false' %}
+
+          {% assign counter = counter | plus: 1 %} 
+
+          {% if settings.password != blank and settings.collection_protected != blank %}
+          {% for col in product.collections %}
+          {% if col.handle == col_pro.handle %}
+          {% assign found = 'true' %}
+          {% assign counter = counter | minus: 1 %} 
+          {% break %}
+          {% endif %}
+          {% endfor %}
+          {% endif %}  
+          
+          {%
+              render 'framework--product--item',
+          product: product,
+          unique_handle: 'recommendation',
+          section_id: section.id,
+          cookie_found : found,
+          %}
+
+          {% if counter == break_at %}
+          {% break %}
+          {% endif %}
+
+          {% endfor %}
+          {% endif %}
+        </div>
+
+      </div>
+    {% endif %}
+  </div>
+{%endif%}
+
+
+{% schema %}
+{
+  "name": "Product recommendations",
+  "class": "section--product-recommendations",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "product-similar-products-show",
+      "label": "Show",
+      "default": true,
+      "info": "Dynamic recommendations change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)"
+    },
+    {
+      "type": "text",
+      "id": "product-similar-products-heading",
+      "label": "Heading",
+      "default": "You may also like"
+    },
+    {
+      "type": "text",
+      "id": "product-similar-products-subheading",
+      "label": "Subheading",
+      "default": "Love the look? Shop similar designs."
+    },
+    {
+      "label": "Position title",
+      "id": "text_alignment",
+      "type": "radio",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "center"
+    }
+  ]
+}
+{% endschema %}

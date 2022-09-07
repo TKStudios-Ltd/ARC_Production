@@ -1,0 +1,47 @@
+{%- comment -%}
+This file has been modified by the Yoast SEO for Shopify app.
+You can learn more about this (and learn how to cleanly revert these changes) at https://yoa.st/removing-theme-changes.
+{%- endcomment -%}
+{%- liquid
+	assign disabled_by_yoast_seo = true
+	if content_for_header contains 'yoast-active-script'
+		assign disabled_by_yoast_seo = false
+	endif
+-%}
+{%- liquid
+  assign logo_type = 'text'
+  if logo or inverted_logo
+    assign logo_type = 'image'
+    assign image_size = '600x200'
+  endif
+-%}
+
+<div
+  class="fw--logo {% if logo_type == 'image' %}height-{{ height_range }}{% endif %} type--{{ logo_type }}"
+>
+  <div class="item" {% if disabled_by_yoast_seo %}itemscope{% endif %} {% if disabled_by_yoast_seo %}itemtype="https://schema.org/Organization"{% endif %}>
+
+    {% if logo_type == 'image' %}
+      <a href="{{ routes.root_url }}" title="{{ routes.root_url }}" {% if disabled_by_yoast_seo %}itemprop="url"{% endif %}>
+        {% if image_type == 'inverted' %}
+          <img
+            src="{{ inverted_logo | img_url: image_size }}"
+            alt="{{ inverted_logo.alt | default: shop.name }}"
+            {% if disabled_by_yoast_seo %}itemprop="logo"{% endif %}
+          >
+        {% else %}
+          <img
+            src="{{ logo | img_url: image_size }}"
+            alt="{{ logo.alt | default: shop.name }}"
+            {% if disabled_by_yoast_seo %}itemprop="logo"{% endif %}
+          >
+        {% endif %}
+      </a>
+    {% else %}
+      <a href="{{ routes.root_url }}" title="{{ routes.root_url }}">
+        <div class="logo--text" data-item="section-heading">{{ shop.name }}</div>
+      </a>
+    {% endif %}
+
+  </div>
+</div>

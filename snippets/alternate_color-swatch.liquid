@@ -1,0 +1,28 @@
+{% assign alternate_product_color = alternate_product.metafields.my_fields.swatch_color %}
+{% if alternate_product_color != 'blank' %}
+	{% assign alternate_color_orig = alternate_product_color | downcase | remove: " " %}
+    {% assign alternate_color = alternate_product_color | downcase | handleize %}
+
+    {%- comment -%} Prepate color data from "settings.product_color_swatches" {%- endcomment -%}
+    {% liquid 
+        assign swatch_colors = settings.product_color_swatches | split: ','
+        for swatch_color in swatch_colors
+            assign color_name = swatch_color | split: ':' | first | downcase | handleize
+            assign color_value = swatch_color | split: ':' | last
+            if alternate_color == color_name
+                assign swatch_color_value = color_value
+            endif
+        endfor
+    %}
+
+    <a 
+        data-tooltip="{{ alternate_color }}"
+        href="{{ alternate_product.url }}"
+        {% if variant_featured_image != blank %}
+        data-variant-featured-image="{{ variant_featured_image | img_url: 'master' }}"
+        {% endif %}
+        data-product-swatch-option="{{ alternate_product_color }}"
+        class="alternate_product_color product__color-swatch {% if alternate_product.handle == product.handle %}selected{% endif %}"
+        style="background-color: {{ swatch_color_value | default: alternate_color_orig }}; background-image: url({{ alternate_color | append: '.png' | file_url }})"
+    ></a>
+{% endif %}
