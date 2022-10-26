@@ -96,35 +96,35 @@ You can learn more about this (and learn how to cleanly revert these changes) at
       <p>We are a brand new stylish sportswear alternative that passionately believes everyone can work up a sweat in style.</p>
       <p>Subscribe now for all the latest news and curated content about our launch.</p>
     </div>
-  </div>
-  <div class="password--mailing-list" id="newsletter">
-    {% form 'customer', id: 'password_form' %}
-		{% if form.posted_successfully? %}
-			<p class="success" data-item="paragraph">{{ success_message_t }}</p>
-		{% endif %}
-        {% if form.errors %}
-			<p class="error" data-item="paragraph">
-                {% for field in form.errors %}
-  				{{ field }} {{ form.errors.messages[field] }}
-    			{% endfor %}
-    		</p>
-		{% endif %}
-        <input type="hidden" name="contact[tags]" value="{{ source }}" />
-		<input type="hidden" name="contact[first_name]" value="Newsletter" />
-		<input type="hidden" name="contact[last_name]" value="Subscriber" />
-		<label for="password-email" data-item="hidden-text">ENTER YOUR EMAIL</label>
-        <input aria-label="ENTER YOUR EMAIL" type="email" id="password-email" placeholder="ENTER YOUR EMAIL" name="contact[email]" required/>
-        <div class="password--mailing-button" data-item="inverted-button">
-			<button>SUBSCRIBE NOW</button>
-		</div>
-        {% if form.posted_successfully? or form.errors %}
-			<script>window.location.hash = '#feedback-bar--newsletter';</script>
-		{% endif %}
-        <div data-item="hidden-text">
-			{% comment %} remove the below line to display reCAPTCHA badge {% endcomment %}
-			{{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
-		</div>
-	{% endform %}
+    <div class="password--mailing-list" id="newsletter">
+        {% form 'customer', id: 'password_form' %}
+    		{% if form.posted_successfully? %}
+    			<p class="success" data-item="paragraph">{{ success_message_t }}</p>
+    		{% endif %}
+            {% if form.errors %}
+    			<p class="error" data-item="paragraph">
+                    {% for field in form.errors %}
+      				{{ field }} {{ form.errors.messages[field] }}
+        			{% endfor %}
+        		</p>
+    		{% endif %}
+            <input type="hidden" name="contact[tags]" value="{{ source }}" />
+    		<input type="hidden" name="contact[first_name]" value="Newsletter" />
+    		<input type="hidden" name="contact[last_name]" value="Subscriber" />
+    		<label for="password-email" data-item="hidden-text">ENTER YOUR EMAIL</label>
+            <input aria-label="ENTER YOUR EMAIL" type="email" id="password-email" placeholder="ENTER YOUR EMAIL" name="contact[email]" required/>
+            <div class="password--mailing-button" data-item="inverted-button">
+    			<button>SUBSCRIBE NOW</button>
+    		</div>
+            {% if form.posted_successfully? or form.errors %}
+    			<script>window.location.hash = '#feedback-bar--newsletter';</script>
+    		{% endif %}
+            <div data-item="hidden-text">
+    			{% comment %} remove the below line to display reCAPTCHA badge {% endcomment %}
+    			{{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
+    		</div>
+    	{% endform %}
+    </div>
   </div>
 </div>
 
