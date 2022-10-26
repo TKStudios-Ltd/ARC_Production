@@ -72,7 +72,7 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 	<div class="password--background-image">
 		{%
 			render "framework--image",
-			image_url: {{ section.settings.background_image }},
+			image_url: "{{ section.settings.background_image }}",
 			full_width: true
 		%}
 	</div>
