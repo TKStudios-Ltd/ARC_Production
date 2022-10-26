@@ -95,6 +95,12 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     text-align: center;
     border-radius: 0 !important;
   }
+  .template--password .password--mailing-list .password--mailing-button {
+    width: 100%;
+    padding-left: 0;
+    text-align: left;
+    max-width: none;
+  }
 </style>
 
 <div class="password--root" data-section-id="{{ section.id }}" data-section-type="password" data-password--logo="{% if logo %}true{% else %}false{% endif %}" data-password--logo-height="{{ section.settings.logo-height-range }}" data-js-class="PasswordPage" >
