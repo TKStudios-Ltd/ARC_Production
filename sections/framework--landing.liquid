@@ -110,12 +110,12 @@ You can learn more about this (and learn how to cleanly revert these changes) at
   .template--password .password--navigation {
     z-index: 10;
   }
-  .template--password .password--navigation .password--logo {
+  .template--password .password--navigation .password--navigation--logo {
     position: absolute;
     left: 5%;
     top: 20px;
   }
-  .template--password .password--navigation .password--instagram {
+  .template--password .password--navigation .password--navigation--instagram {
     position: absolute;
     right: 5%;
     top: 20px;
@@ -136,10 +136,10 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     %}
   </div>
   <div class="password--navigation">
-    <a class="password--logo" href="{{ shop.url }}" title="{{ shop.name }}" {% if disabled_by_yoast_seo %}itemprop="url"{% endif %}>
+    <a class="password--navigation--logo" href="{{ shop.url }}" title="{{ shop.name }}" {% if disabled_by_yoast_seo %}itemprop="url"{% endif %}>
     	<img src="{{ section.settings.logo | img_url }}">
     </a>
-    <a class="password--instagram" href="{{ shop.url }}">INSTAGRAM</a>
+    <a class="password--navigation--instagram" href="{{ shop.url }}">INSTAGRAM</a>
   </div>
   <div class="password--main">
     <div class="password--main--content">
