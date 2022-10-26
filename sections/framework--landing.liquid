@@ -63,16 +63,19 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 
 
 <div class="password--background-image">
-  <img class="framework--image" src="{{ section.settings.background_image | img_url }}">
+  <div class="image--root" data-parallax="" data-cover="" data-cover-mobile="" data-darken="" data-darken-mobile="" style="width: 100%;">
+    <div class="image--container" style="padding-top:100%;">
+      <img class="lazyautosizes lazyloaded" data-src="{{ section.settings.background_image | img_url }}" data-sizes="auto" data-widths="[]" alt="" sizes="1258px" src="{{ section.settings.background_image | img_url }}">
+    </div>
+    <noscript>
+      <img
+        src="{{ section.settings.background_image | img_url }}"
+        alt=""
+      >
+    </noscript>
+  </div>
 </div>
 
-
-
-
-
-
-
-background_image
 
 
 <div
