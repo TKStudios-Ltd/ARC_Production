@@ -911,7 +911,7 @@
       "framework--landing": {
         "type": "framework--landing",
         "settings": {
-          "background_image": "shopify:\/\/shop_images\/Athletique_Landing_Background.jpg",
+          "logo": "shopify:\/\/shop_images\/Primary_logo_white_1.png",
           "logo-height-range": 50,
           "show-mailing-list": true,
           "mailing-list--title": "Sign up to our mailing list"
