@@ -128,6 +128,9 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     line-height: 25px;
     letter-spacing: -0.25px;
   }
+  .template--password button.needsclick {
+    display: none !important;
+  }
 </style>
 
 <div class="password--root" data-section-id="{{ section.id }}" data-section-type="password" data-password--logo="{% if logo %}true{% else %}false{% endif %}" data-password--logo-height="{{ section.settings.logo-height-range }}" data-js-class="PasswordPage" >
