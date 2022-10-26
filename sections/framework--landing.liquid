@@ -121,16 +121,7 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     %}
   </div>
   <a href="{{ shop.url }}" title="{{ shop.name }}" {% if disabled_by_yoast_seo %}itemprop="url"{% endif %}>
-	{% if logo %}
-		<div class="password--logo">
-    		{%
-				render "framework--image",
-				image: logo,
-				full_width: false,
-				max_height: logo_height
-			%}
-		</div>
-	{% else %}<div class="password--shop-name" data-item="section-heading">{{ shop.name }}</div>{% endif %}
+	<img src="{{ section.settings.logo | img_url }}">
   </a>
   <div class="password--main">
     <div class="password--main--content">
