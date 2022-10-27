@@ -132,21 +132,24 @@ You can learn more about this (and learn how to cleanly revert these changes) at
   .template--password button.needsclick {
     display: none !important;
   }
-  password--background-image_desk {
+  .password--background-image_desk {
     display: inherit
   }
-  password--background-image_mob {
+  .password--background-image_mob {
     display: none;
   }
   @media (max-width: 768px) {
     .password--background-image::before {
       background-color: rgba(0,0,0,.25);
     }
-    password--background-image_desk {
+    .password--background-image_desk {
       display: none;
     }
-    password--background-image_mob {
+    .password--background-image_mob {
       display: inherit
+    }
+    .template--password .password--main {
+      justify-content: flex-end;
     }
   }
 </style>
