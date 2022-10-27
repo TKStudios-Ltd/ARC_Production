@@ -132,25 +132,37 @@ You can learn more about this (and learn how to cleanly revert these changes) at
   .template--password button.needsclick {
     display: none !important;
   }
-  @media (max-width: 768px)c{
+  password--background-image_desk {
+    display: inherit
+  }
+  password--background-image_mob {
+    display: none;
+  }
+  @media (max-width: 768px) {
     .password--background-image::before {
       background-color: rgba(0,0,0,.25);
+    }
+    password--background-image_desk {
+      display: none;
+    }
+    password--background-image_mob {
+      display: inherit
     }
   }
 </style>
 
 <div class="password--root" data-section-id="{{ section.id }}" data-section-type="password" data-password--logo="{% if logo %}true{% else %}false{% endif %}" data-password--logo-height="{{ section.settings.logo-height-range }}" data-js-class="PasswordPage" >
-  <div class="password--background-image">
+  <div class="password--background-image password--background-image_desk">
     {%
     	render "framework--image",
     	image_url: background_image,
     	full_width: true
     %}
   </div>
-  <div class="password--background-image">
+  <div class="password--background-image password--background-image_mob">
     {%
     	render "framework--image",
-    	image_url: background_image,
+    	image_url: background_image_mob,
     	full_width: true
     %}
   </div>
