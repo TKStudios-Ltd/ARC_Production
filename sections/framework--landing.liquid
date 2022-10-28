@@ -213,13 +213,13 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     </a>
     <a class="password--navigation--instagram" href="{{ shop.url }}">INSTAGRAM</a>
   </div>
-  <div class="password--main" data-aos="fade-up" data-aos-duration="3000">
-    <div class="password--main--content">
+  <div class="password--main">
+    <div class="password--main--content" data-aos="fade-up" data-aos-duration="3000">
       <h1><span>Introducing</span> Athlétique</h1>
       <p>We are a brand new stylish sportswear alternative that passionately believes everyone can work up a sweat in style.</p>
       <p>Subscribe now for all the latest news and curated content about our launch.</p>
     </div>
-    <div class="password--mailing-list" id="newsletter">
+    <div class="password--mailing-list" id="newsletter" data-aos="fade-up" data-aos-duration="3500">
         {% form 'customer', id: 'password_form' %}
     		{% if form.posted_successfully? %}
     			<p class="success" data-item="paragraph">{{ success_message_t }}</p>
