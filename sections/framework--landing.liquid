@@ -210,7 +210,7 @@ You can learn more about this (and learn how to cleanly revert these changes) at
   </div>
   <div class="password--navigation">
     <a class="password--navigation--logo" href="{{ shop.url }}" title="{{ shop.name }}" {% if disabled_by_yoast_seo %}itemprop="url"{% endif %}>
-    	<img src="{{ 'Primary_logo_white 2.svg' | asset_url | img_tag }}">
+    	<img src="{{ section.settings.logo | img_url }}">
     </a>
     <a class="password--navigation--instagram" href="{{ shop.url }}">INSTAGRAM</a>
   </div>
