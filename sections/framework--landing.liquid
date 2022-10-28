@@ -194,7 +194,16 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     }
   }
 </style>
-
+<script>
+    const convertStyle = () => {
+      const height = window.innerHeight;
+      Array.from(document.getElementsByTagName("section")).forEach((element) => {
+        element.style.height = `${height}px`;
+      });
+    };
+    window.addEventListener("resize", convertStyle);
+    window.addEventListener("DOMContentLoaded", convertStyle);
+  </script>
 
 <div class="password--root" data-section-id="{{ section.id }}" data-section-type="password" data-password--logo="{% if logo %}true{% else %}false{% endif %}" data-password--logo-height="{{ section.settings.logo-height-range }}" data-js-class="PasswordPage" >
   <div class="password--background-image password--background-image_desk">
