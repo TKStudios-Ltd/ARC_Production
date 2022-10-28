@@ -173,7 +173,18 @@ You can learn more about this (and learn how to cleanly revert these changes) at
       left: calc(50% - 50px);
     }
   }
+  .shopify-section-framework--landing {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
 </style>
+
+{% javascript %}
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+{% endjavascript %}
 
 <div class="password--root" data-section-id="{{ section.id }}" data-section-type="password" data-password--logo="{% if logo %}true{% else %}false{% endif %}" data-password--logo-height="{{ section.settings.logo-height-range }}" data-js-class="PasswordPage" >
   <div class="password--background-image password--background-image_desk">
