@@ -253,7 +253,7 @@ appHeight()
     		<input type="hidden" name="contact[last_name]" value="Subscriber" />
     		<label for="password-email" data-item="hidden-text">ENTER YOUR EMAIL</label>
             <input aria-label="ENTER YOUR EMAIL" type="email" id="password-email" placeholder="ENTER YOUR EMAIL" name="contact[email]" required/>
-            <div class="password--mailing-button" data-item='button'>
+            <div class="password--mailing-button">
     			<button value="{{ newsletter_button_t }}">SUBSCRIBE NOW</button>
     		</div>
             {% if form.posted_successfully? or form.errors %}
