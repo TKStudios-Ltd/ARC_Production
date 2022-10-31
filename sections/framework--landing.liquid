@@ -105,6 +105,10 @@ You can learn more about this (and learn how to cleanly revert these changes) at
   }
   .password--mailing-list form {
     justify-content: flex-start;
+    padding: 0 !important;
+  }
+  .klaviyo-form.klaviyo-form.klaviyo-form {
+    padding: 0 !important;
   }
   .password--mailing-list .error, .password--mailing-list .success {
     text-align: left;
@@ -262,7 +266,6 @@ appHeight()
     			<script>window.location.hash = '#feedback-bar--newsletter';</script>
     		{% endif %}
             <div data-item="hidden-text">
-    			{% comment %} remove the below line to display reCAPTCHA badge {% endcomment %}
     			{{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
     		</div>
     	{% endform %}
