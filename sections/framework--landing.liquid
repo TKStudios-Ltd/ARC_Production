@@ -237,6 +237,8 @@ appHeight()
       <p>Subscribe now for all the latest news and curated content about our launch.</p>
     </div>
     <div class="password--mailing-list" id="newsletter">
+        <div class="klaviyo-form-RyUHfV"></div>
+        {% comment %}
         {% form 'customer', id: 'footer_form' %}
     		{% if form.posted_successfully? %}
     			<p class="success" data-item="paragraph">{{ success_message_t }}</p>
@@ -264,6 +266,7 @@ appHeight()
     			{{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
     		</div>
     	{% endform %}
+        {% endcomment %}
     </div>
   </div>
 </div>
