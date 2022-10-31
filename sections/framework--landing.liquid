@@ -237,7 +237,7 @@ appHeight()
       <p>Subscribe now for all the latest news and curated content about our launch.</p>
     </div>
     <div class="password--mailing-list" id="newsletter">
-        {% form 'customer', id: 'password_form' %}
+        {% form 'customer', id: 'footer_form' %}
     		{% if form.posted_successfully? %}
     			<p class="success" data-item="paragraph">{{ success_message_t }}</p>
     		{% endif %}
