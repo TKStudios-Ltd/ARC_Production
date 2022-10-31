@@ -151,7 +151,7 @@ You can learn more about this (and learn how to cleanly revert these changes) at
   }
   .template--password .password--navigation .password--navigation--instagram {
     position: absolute;
-    right: 5%;
+    right: calc(5% + 25px);
     top: 20px;
     color: white;
     font-family: acumin-pro-semi-condensed,sans-serif;
@@ -169,6 +169,10 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     font-size: 17px !important;
     letter-spacing: -0.75px !important;
     box-shadow: none !important;
+    transition: color .4s ease;
+  }
+  .template--password button.needsclick:hover {
+    color: #DFF69B !important;
   }
   .template--password input.needsclick {
     text-align: center !important;
@@ -179,6 +183,7 @@ You can learn more about this (and learn how to cleanly revert these changes) at
   .template--password input.needsclick::placeholder {
     font-size: 15px !important;
     letter-spacing: -0.75px !important;
+    opacity: 0.7 !important;
   }
 /*   .template--password #email_51635833 .kl-private-reset-css-Xuajs1.needsclick {
     border: 1px solid white !important;
