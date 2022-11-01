@@ -112,7 +112,9 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     padding-bottom: 10px;
   }
   .fadeInUp { 
-    animation:fadeInUp 1s ease backwards;
+/*     animation:fadeInUp 3s ease backwards; */
+    animation:2s ease 2s normal backwards 1 fadein;
+    -webkit-animation:2s ease 2s normal backwards 1 fadein;
   }
   @keyframes fadeInUp {
     0%{transform:translate(0px, 100px); opacity: 0;}
