@@ -34,7 +34,7 @@
     "popup--background-color": "light",
     "popup--show-image": false,
     "popup--image": "shopify:\/\/shop_images\/ARC_BESTSHOTS_0160_1920x1936_92ef24d8-8167-4e90-b00a-a8cc18b23d3a.jpg",
-    "favicon": "shopify:\/\/shop_images\/arc_fav_icon_fa810cb8-c89c-4713-b3f3-d8229c8d3f79.png",
+    "favicon": "shopify:\/\/shop_images\/favicon-brand-mark.gif",
     "checkout_logo_image": "shopify:\/\/shop_images\/ARC_LOGOs-03_83376a96-8736-4ba9-af04-43ae68e60652.png",
     "checkout_logo_size": "small",
     "checkout_body_background_color": "#ffffff",
