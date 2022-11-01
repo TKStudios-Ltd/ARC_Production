@@ -111,6 +111,13 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     max-width: 350px;
     padding-bottom: 10px;
   }
+  .fadeInUp { 
+    animation:fadeInUp 1s ease backwards;
+  }
+  @keyframes fadeInUp {
+    0%{transform:translate(0px, 100px); opacity: 0;}
+    100%{transform:translate(0px, 0); opacity: 1;}
+  }
   .template--password .password--mailing-list {
     padding-bottom: 0px !important;
     max-width: 345px;
@@ -290,10 +297,12 @@ appHeight()
   <div class="password--main">
     <div class="password--main--content">
       <h1><span>Introducing Athlétique</span></h1>
-      <p>We are a brand new stylish sportswear alternative that passionately believes everyone can work up a sweat in style.</p>
-      <p>Subscribe now for all the latest news and curated content about our launch.</p>
+      <div class="fadeInUp">
+        <p>We are a brand new stylish sportswear alternative that passionately believes everyone can work up a sweat in style.</p>
+        <p>Subscribe now for all the latest news and curated content about our launch.</p>
+      </div>
     </div>
-    <div class="password--mailing-list" id="newsletter">
+    <div class="password--mailing-list fadeInUp" id="newsletter">
         <div class="klaviyo-form-RyUHfV"></div>
         {% comment %}
         {% form 'customer', id: 'footer_form' %}
