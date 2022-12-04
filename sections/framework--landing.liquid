@@ -59,9 +59,12 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     text-transform: uppercase;
     font-size: 34px;
     letter-spacing: -1px;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     overflow: hidden;
     line-height: 1;
+  }
+  .template--password h1.delayed {
+    margin-bottom: 20px;
   }
   .template--password h1 span {
     font-weight: 600;
@@ -76,7 +79,7 @@ You can learn more about this (and learn how to cleanly revert these changes) at
       transform: translate(0,0);
     }
   }
-  .template--password h1 span.delayed {
+  .template--password h1.delayed span {
     font-weight: 600;
     display: block;
     animation: reveal 3s cubic-bezier(0.77, 0, 0.175, 1) 0s;
@@ -295,7 +298,7 @@ appHeight()
   <div class="password--main">
     <div class="password--main--content">
       <h1><span>NEW SPORTS LUXURY</span></h1>
-      <h1><span class="delayed">LAUNCHING SOON</span></h1>
+      <h1 class="delayed"><span>LAUNCHING SOON</span></h1>
       <div class="fadeInUp">
         <p>Introducing Athlétique. A design house for luxury workout apparel.</p>
         <p>Subscribe now for all the latest news and curated content about our launch.</p>
