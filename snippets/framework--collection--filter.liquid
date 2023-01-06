@@ -44,6 +44,9 @@
               data-transition="fade-out"
             >
               {%- for collection_item in collections_list -%}
+                {%- comment %}<locksmith:577c>{% endcomment -%}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection_item, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                {%- comment %}</locksmith:577c>{% endcomment -%}
                 <li
                   class="collection--filter--browse-link"
                   tabindex="0"
