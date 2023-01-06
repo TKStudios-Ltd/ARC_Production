@@ -1,3 +1,7 @@
+{%- comment %}<locksmith:f412>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:f412>{% endcomment -%}
+
 {%- comment -%}
 This file has been modified by the Yoast SEO for Shopify app.
 You can learn more about this (and learn how to cleanly revert these changes) at https://yoa.st/removing-theme-changes.
@@ -17,6 +21,7 @@ This file can be re-written at any time.
 <html class="no-js" lang="{{ shop.locale }}">
   
 <head>
+  {{ locksmith_initializations }}
   {% render 'yoast-seo' %} 
     <!-- Global site tag (gtag.js) - Google Ads: 10822657071 -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10822657071"></script>
@@ -41,7 +46,10 @@ This file can be re-written at any time.
     {% if page_description %}
     {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta name="description" content="{{ page_description | escape }}">
+{%- comment %}<locksmith:0b0b>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+  {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+{%- comment %}</locksmith:0b0b>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
     {% endif %}
@@ -203,7 +211,7 @@ This file can be re-written at any time.
   >
   
   
-  {{ content_for_layout }}
+  {{ content_for_layout }}{{ locksmith_content_for_layout_addenda }}
   
   <script>
       var col = document.querySelector('.collection--root.col_found'),

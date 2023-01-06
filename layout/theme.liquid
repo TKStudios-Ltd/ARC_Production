@@ -1,3 +1,7 @@
+{%- comment %}<locksmith:a7cb>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:a7cb>{% endcomment -%}
+
 {%- comment -%}
 This file has been modified by the Yoast SEO for Shopify app.
 You can learn more about this (and learn how to cleanly revert these changes) at https://yoa.st/removing-theme-changes.
@@ -10,7 +14,8 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 -%}
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
-  <head>{% render 'yoast-seo' %} 
+  <head>{{ locksmith_initializations }}
+{% render 'yoast-seo' %} 
     <!-- Global site tag (gtag.js) - Google Ads: 10822657071 -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10822657071"></script>
 <script>
@@ -34,7 +39,10 @@ You can learn more about this (and learn how to cleanly revert these changes) at
     {% if page_description %}
     {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta name="description" content="{{ page_description | escape }}">
+{%- comment %}<locksmith:a575>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+  {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+{%- comment %}</locksmith:a575>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
     {% endif %}
@@ -217,7 +225,7 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 
     <main class="layout--main-content" id="main-content">
 
-      {{ content_for_layout }}
+      {{ content_for_layout }}{{ locksmith_content_for_layout_addenda }}
 
       {% if settings.password != blank and settings.collection_protected != blank %}
       {% assign collection = settings.collection_protected %}
