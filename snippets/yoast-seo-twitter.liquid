@@ -53,23 +53,14 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 {%- if twitter_title != "" %}
-{%- comment %}<locksmith:e089>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:title" content="{{ twitter_title | replace: '"', '&#34;' }}" />{% endif -%}
-  {%- comment %}original: <meta name="twitter:title" content="{{ twitter_title | replace: '"', '&#34;' }}" />{%- endcomment %}
-{%- comment %}</locksmith:e089>{% endcomment -%}
+<meta name="twitter:title" content="{{ twitter_title | replace: '"', '&#34;' }}" />
 {%- endif -%}
 
 {%- if twitter_description != "" %}
-{%- comment %}<locksmith:c290>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:description" content="{{ twitter_description | replace: '"', '&#34;' }}" />{% endif -%}
-  {%- comment %}original: <meta name="twitter:description" content="{{ twitter_description | replace: '"', '&#34;' }}" />{%- endcomment %}
-{%- comment %}</locksmith:c290>{% endcomment -%}
+<meta name="twitter:description" content="{{ twitter_description | replace: '"', '&#34;' }}" />
 {%- endif -%}
 
 {%- comment -%}Render the twitter:image tags{%- endcomment -%}
 {%- if twitter_image != null and twitter_image != empty %}
-{%- comment %}<locksmith:ddd1>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:image" content="https:{{ twitter_image | img_url: '4096x4096' }}" />{% endif -%}
-  {%- comment %}original: <meta name="twitter:image" content="https:{{ twitter_image | img_url: '4096x4096' }}" />{%- endcomment %}
-{%- comment %}</locksmith:ddd1>{% endcomment -%}
+<meta name="twitter:image" content="https:{{ twitter_image | img_url: '4096x4096' }}" />
 {%- endif -%}

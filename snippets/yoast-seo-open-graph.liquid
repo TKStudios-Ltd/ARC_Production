@@ -53,10 +53,7 @@
 <meta property="og:locale" content="{{- og_locale | replace: '"', '&#34;' -}}" />
 
 {%- if yoast_seo_page_type == "article" %}
-{%- comment %}<locksmith:d442>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:type" content="article" />{% endif -%}
-  {%- comment %}original: <meta property="og:type" content="article" />{%- endcomment %}
-{%- comment %}</locksmith:d442>{% endcomment -%}
+<meta property="og:type" content="article" />
 <meta property="article:author" content="{{ article.author | replace: '"', '&#34;' }}" />
 <meta property="article:modified_time" content="{{ article.updated_at | date: "%Y-%m-%dT%H:%M:%S%:z" }}" />
 <meta property="article:published_time" content="{{ article.published_at | date: "%Y-%m-%dT%H:%M:%S%:z" }}" />
@@ -66,20 +63,14 @@
 <meta property="article:publisher" content="{{ publisher | replace: '"', '&#34;' }}" />
 	{%- endif -%}
 {%- elsif yoast_seo_output_type != "basic" %}
-{%- comment %}<locksmith:2e0c>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:type" content="website" />{% endif -%}
-  {%- comment %}original: <meta property="og:type" content="website" />{%- endcomment %}
-{%- comment %}</locksmith:2e0c>{% endcomment -%}
+<meta property="og:type" content="website" />
 {%- endif -%}
 
 {%- capture og_title -%}{%- render "yoast-seo-variable", variable: "open_graph_title" -%}{%- endcapture -%}
 {%- if og_title == "" -%}
 	{%- capture og_title -%}{%- render "yoast-seo-variable", variable: "title" -%}{%- endcapture -%}
 {%- endif %}
-{%- comment %}<locksmith:c96e>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:title" content="{{ og_title | replace: '"', '&#34;' }}" />{% endif -%}
-  {%- comment %}original: <meta property="og:title" content="{{ og_title | replace: '"', '&#34;' }}" />{%- endcomment %}
-{%- comment %}</locksmith:c96e>{% endcomment -%}
+<meta property="og:title" content="{{ og_title | replace: '"', '&#34;' }}" />
 
 {%- unless yoast_seo_output_type == "basic" -%}
 	{%- capture og_description -%}{%- render "yoast-seo-variable", variable: "open_graph_description" -%}{%- endcapture -%}
@@ -87,10 +78,7 @@
 		{%- capture og_description -%}{%- render "yoast-seo-variable", variable: "description" -%}{%- endcapture -%}
 	{%- endif -%}
 	{%- if og_description != "" %}
-{%- comment %}<locksmith:4931>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:description" content="{{ og_description | replace: '"', '&#34;' }}" />{% endif -%}
-  {%- comment %}original: <meta property="og:description" content="{{ og_description | replace: '"', '&#34;' }}" />{%- endcomment %}
-{%- comment %}</locksmith:4931>{% endcomment -%}
+<meta property="og:description" content="{{ og_description | replace: '"', '&#34;' }}" />
 	{%- endif -%}
 	{%- render "yoast-seo-open-graph-image" -%}
 {%- endunless -%}

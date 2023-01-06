@@ -42,10 +42,7 @@
 	<title>{{- title | strip_html -}}</title>
 	{%- capture description -%}{%- render "yoast-seo-variable", variable: "description" -%}{%- endcapture -%}
 	{%- if description != "" %}
-{%- comment %}<locksmith:0b06>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{- description | replace: '"', '&#34;' -}}" />{% endif -%}
-  {%- comment %}original: <meta name="description" content="{{- description | replace: '"', '&#34;' -}}" />{%- endcomment %}
-{%- comment %}</locksmith:0b06>{% endcomment -%}
+<meta name="description" content="{{- description | replace: '"', '&#34;' -}}" />
 	{%- endif -%}
 
 	{%- render 'yoast-seo-canonical' -%}
