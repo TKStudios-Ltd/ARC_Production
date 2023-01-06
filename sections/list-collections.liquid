@@ -25,9 +25,6 @@
       {% if linklists.all-collections.links.size > 0 %}
         {% assign collection_list = linklists.all-collections.links %}
         {% for link in collection_list %}
-          {%- comment %}<locksmith:274c>{% endcomment -%}
-            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-          {%- comment %}</locksmith:274c>{% endcomment -%}
           {% assign collection = link.object %}
           {% unless
             collection.handle == 'all' or

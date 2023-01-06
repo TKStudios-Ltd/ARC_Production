@@ -131,9 +131,6 @@
     {% assign col_pro = settings.collection_protected %}
     
     {% for product in collection.products %}
-    {%- comment %}<locksmith:454c>{% endcomment -%}
-      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-    {%- comment %}</locksmith:454c>{% endcomment -%}
     {% assign found = 'false' %}
     
     {% assign counter = counter | plus: 1 %} 

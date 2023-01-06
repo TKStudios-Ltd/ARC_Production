@@ -314,9 +314,6 @@
               {% assign current_product = product %}
               {% render 'alternate_color-swatch' with product: product, alternate_product: current_product, variant_featured_image: product.featured_image %}
               {% for alternate_product in alternate_products %}
-                {%- comment %}<locksmith:b5c5>{% endcomment -%}
-                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: alternate_product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                {%- comment %}</locksmith:b5c5>{% endcomment -%}
                 {% if alternate_product.handle != product.handle %}
                   {% render 'alternate_color-swatch' with product: product, alternate_product: alternate_product, variant_featured_image: alternate_product.featured_image %}
                 {% endif %}
@@ -390,9 +387,6 @@
           {% assign current_product = product %}
           {% render 'alternate_color-swatch' with product: product, alternate_product: current_product, variant_featured_image: product.featured_image %}
           {% for alternate_product in alternate_products %}
-            {%- comment %}<locksmith:3b44>{% endcomment -%}
-              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: alternate_product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-            {%- comment %}</locksmith:3b44>{% endcomment -%}
             {% if alternate_product.handle != product.handle %}
               {% render 'alternate_color-swatch' with product: product, alternate_product: alternate_product, variant_featured_image: alternate_product.featured_image %}
             {% endif %}

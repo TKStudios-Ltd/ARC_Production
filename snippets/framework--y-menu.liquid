@@ -19,10 +19,6 @@
     {% assign list_lvl_1 = handle %}
     {% for link in linklists[list_lvl_1].links %}
 
-      {%- comment %}<locksmith:fc70>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[list_lvl_1], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:fc70>{% endcomment -%}
-
       <li
         class="y-menu--level-1--link"
         data-item="nav-text"
@@ -79,10 +75,6 @@
               {% assign list_lvl_2 = link.handle %}
               {% for link in linklists[list_lvl_2].links %}
 
-                {%- comment %}<locksmith:bdb1>{% endcomment -%}
-                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[list_lvl_2], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                {%- comment %}</locksmith:bdb1>{% endcomment -%}
-
                 <li
                   class="y-menu--level-2--link"
                   data-item="nav-text"
@@ -127,9 +119,6 @@
 
                       {% assign list_lvl_3 = link.handle %}
                       {% for link in linklists[list_lvl_3].links %}
-                        {%- comment %}<locksmith:091d>{% endcomment -%}
-                          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[list_lvl_3], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                        {%- comment %}</locksmith:091d>{% endcomment -%}
                         <li
                           class="y-menu--level-3--link"
                           data-item="nav-text"

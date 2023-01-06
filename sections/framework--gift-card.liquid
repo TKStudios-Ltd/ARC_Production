@@ -37,10 +37,7 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 {%- endif -%}
     {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-{%- comment %}<locksmith:b72b>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">{% endif -%}
-  {%- comment %}original: <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">{%- endcomment %}
-{%- comment %}</locksmith:b72b>{% endcomment -%}
+<meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 

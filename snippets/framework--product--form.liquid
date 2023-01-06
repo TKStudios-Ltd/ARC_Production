@@ -163,9 +163,6 @@ You can learn more about this (and learn how to cleanly revert these changes) at
                 {% assign current_product = product %}
                 {% render 'alternate_color-swatch' with product: product, alternate_product: current_product %}
                 {% for alternate_product in alternate_products %}
-                  {%- comment %}<locksmith:675c>{% endcomment -%}
-                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: alternate_product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                  {%- comment %}</locksmith:675c>{% endcomment -%}
                   {% if alternate_product.handle != product.handle %}
                     {% render 'alternate_color-swatch' with product: product, alternate_product: alternate_product %}
                   {% endif %}

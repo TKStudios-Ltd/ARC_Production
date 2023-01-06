@@ -72,10 +72,6 @@
 
           {% for product in recommendations.products %}
           
-          {%- comment %}<locksmith:a355>{% endcomment -%}
-            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: recommendations, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-          {%- comment %}</locksmith:a355>{% endcomment -%}
-          
           {% assign found = 'false' %}
 
           {% assign counter = counter | plus: 1 %} 

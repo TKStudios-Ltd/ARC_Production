@@ -1,7 +1,3 @@
-{%- comment %}<locksmith:1e76>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:1e76>{% endcomment -%}
-
 {%- comment -%}
 This file has been modified by the Yoast SEO for Shopify app.
 You can learn more about this (and learn how to cleanly revert these changes) at https://yoa.st/removing-theme-changes.
@@ -18,8 +14,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 {% endcomment %}
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
-  <head>{{ locksmith_initializations }}
-{% render 'yoast-seo' %}
+  <head>{% render 'yoast-seo' %}
     <!-- Beyond Theme - Version 1.0.1 by Troop Themes - https://troopthemes.com/ -->
 
     <meta charset="UTF-8">
@@ -28,10 +23,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
     {% if page_description %}
       {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-{%- comment %}<locksmith:e6ce>{% endcomment -%}
-  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-  {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-{%- comment %}</locksmith:e6ce>{% endcomment -%}
+<meta name="description" content="{{ page_description | escape }}">
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
     {% endif %}
@@ -135,5 +127,5 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
     data-theme-name="Beyond"
     data-theme-version="1.0.1"
     data-tabbing="false"
-  ><div class="pagefly-container">{{ content_for_layout }}{{ locksmith_content_for_layout_addenda }}</div></body>
+  ><div class="pagefly-container">{{ content_for_layout }}</div></body>
 </html>
