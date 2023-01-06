@@ -114,11 +114,17 @@
 		{%- render 'yoast-seo-schema-image', image_object: og_image, image_id: og_image_id, image_url: og_image, image_width: content_image_width, image_height: content_image_height, image_alt: content_image_alt  -%}
 	{%- else -%}
 		{%- if content_image -%}
-<meta property="og:image" content="{{ content_image_url }}" />
+{%- comment %}<locksmith:a6ea>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image" content="{{ content_image_url }}" />{% endif -%}
+  {%- comment %}original: <meta property="og:image" content="{{ content_image_url }}" />{%- endcomment %}
+{%- comment %}</locksmith:a6ea>{% endcomment -%}
 <meta property="og:image:height" content="{{ content_image_height }}" />
 <meta property="og:image:width" content="{{ content_image_width }}" />
 		{%- else %}
-<meta property="og:image" content="https:{{ og_image | img_url: 'master' }}" />
+{%- comment %}<locksmith:71c5>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image" content="https:{{ og_image | img_url: 'master' }}" />{% endif -%}
+  {%- comment %}original: <meta property="og:image" content="https:{{ og_image | img_url: 'master' }}" />{%- endcomment %}
+{%- comment %}</locksmith:71c5>{% endcomment -%}
 <meta property="og:image:height" content="{{ og_image.height }}" />
 <meta property="og:image:width" content="{{ og_image.width }}" />
 		{%- endif -%}

@@ -1,6 +1,11 @@
+{%- comment %}<locksmith:3a09>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:3a09>{% endcomment -%}
+
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
   <head> 
+    {{ locksmith_initializations }}
     <!-- Global site tag (gtag.js) - Google Ads: 10822657071 -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10822657071"></script>
 <script>
@@ -21,7 +26,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="facebook-domain-verification" content="trgvxs80lgh88x3jxg3i9xe419mrhy" />
     {% if page_description %}
-    <meta name="description" content="{{ page_description | escape }}">
+    {%- comment %}<locksmith:a85a>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+    {%- comment %}</locksmith:a85a>{% endcomment -%}
     {% endif %}
 
     {% if settings.password != blank and settings.collection_protected != blank %}
@@ -181,7 +189,7 @@
 
     <main class="layout--main-content" id="main-content">
 
-      {{ content_for_layout }}
+      {{ content_for_layout }}{{ locksmith_content_for_layout_addenda }}
 
       {% if settings.password != blank and settings.collection_protected != blank %}
       {% assign collection = settings.collection_protected %}

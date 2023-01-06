@@ -26,24 +26,36 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 {% if request.page_type == 'product' %}
   {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:type" content="product">
+{%- comment %}<locksmith:021c>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:type" content="product">{% endif -%}
+  {%- comment %}original: <meta property="og:type" content="product">{%- endcomment %}
+{%- comment %}</locksmith:021c>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
   {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:title" content="{{ product.title | strip_html | escape }}">
+{%- comment %}<locksmith:57b3>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:title" content="{{ product.title | strip_html | escape }}">{% endif -%}
+  {%- comment %}original: <meta property="og:title" content="{{ product.title | strip_html | escape }}">{%- endcomment %}
+{%- comment %}</locksmith:57b3>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 
   {% for media in product.media limit: 3 %}
     {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:image" content="http:{{ media | img_url: '1200x' }}">
+{%- comment %}<locksmith:b206>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image" content="http:{{ media | img_url: '1200x' }}">{% endif -%}
+  {%- comment %}original: <meta property="og:image" content="http:{{ media | img_url: '1200x' }}">{%- endcomment %}
+{%- comment %}</locksmith:b206>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
     {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:image:secure_url" content="https:{{ media | img_url: '1200x' }}">
+{%- comment %}<locksmith:94b1>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image:secure_url" content="https:{{ media | img_url: '1200x' }}">{% endif -%}
+  {%- comment %}original: <meta property="og:image:secure_url" content="https:{{ media | img_url: '1200x' }}">{%- endcomment %}
+{%- comment %}</locksmith:94b1>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
     {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
@@ -68,7 +80,10 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 {%- endif -%}
   {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
+{%- comment %}<locksmith:4875>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'access_granted' %}{% endcapture %}{% if var == 'true' %}<meta property="og:price:currency" content="{{ cart.currency.iso_code }}">{% endif -%}
+  {%- comment %}original: <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">{%- endcomment %}
+{%- comment %}</locksmith:4875>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 
@@ -116,24 +131,36 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 {% elsif request.page_type == 'article' %}
   {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:type" content="article">
+{%- comment %}<locksmith:d68d>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:type" content="article">{% endif -%}
+  {%- comment %}original: <meta property="og:type" content="article">{%- endcomment %}
+{%- comment %}</locksmith:d68d>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
   {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:title" content="{{ article.title | strip_html | escape }}">
+{%- comment %}<locksmith:bbd8>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:title" content="{{ article.title | strip_html | escape }}">{% endif -%}
+  {%- comment %}original: <meta property="og:title" content="{{ article.title | strip_html | escape }}">{%- endcomment %}
+{%- comment %}</locksmith:bbd8>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 
   {% if article.image %}
     {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:image" content="http:{{ article.image | img_url: '1200x' }}">
+{%- comment %}<locksmith:af76>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image" content="http:{{ article.image | img_url: '1200x' }}">{% endif -%}
+  {%- comment %}original: <meta property="og:image" content="http:{{ article.image | img_url: '1200x' }}">{%- endcomment %}
+{%- comment %}</locksmith:af76>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
     {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:image:secure_url" content="https:{{ article.image | img_url: '1200x' }}">
+{%- comment %}<locksmith:0c77>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:image:secure_url" content="https:{{ article.image | img_url: '1200x' }}">{% endif -%}
+  {%- comment %}original: <meta property="og:image:secure_url" content="https:{{ article.image | img_url: '1200x' }}">{%- endcomment %}
+{%- comment %}</locksmith:0c77>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
     {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
@@ -153,14 +180,20 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 {%- if disabled_by_yoast_seo -%}
 {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:type" content="website">
+{%- comment %}<locksmith:7fb0>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:type" content="website">{% endif -%}
+  {%- comment %}original: <meta property="og:type" content="website">{%- endcomment %}
+{%- comment %}</locksmith:7fb0>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
   {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:title" content="{{ shop.name }}">
+{%- comment %}<locksmith:6904>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:title" content="{{ shop.name }}">{% endif -%}
+  {%- comment %}original: <meta property="og:title" content="{{ shop.name }}">{%- endcomment %}
+{%- comment %}</locksmith:6904>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 
@@ -169,14 +202,20 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 {%- if disabled_by_yoast_seo -%}
 {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:type" content="website">
+{%- comment %}<locksmith:39d9>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:type" content="website">{% endif -%}
+  {%- comment %}original: <meta property="og:type" content="website">{%- endcomment %}
+{%- comment %}</locksmith:39d9>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
   {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:title" content="{{ page_title | escape }}">
+{%- comment %}<locksmith:1ad4>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:title" content="{{ page_title | escape }}">{% endif -%}
+  {%- comment %}original: <meta property="og:title" content="{{ page_title | escape }}">{%- endcomment %}
+{%- comment %}</locksmith:1ad4>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 
@@ -202,7 +241,10 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 {%- endif -%}
 {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta property="og:description" content="{{ share_description }}">
+{%- comment %}<locksmith:65dd>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta property="og:description" content="{{ share_description }}">{% endif -%}
+  {%- comment %}original: <meta property="og:description" content="{{ share_description }}">{%- endcomment %}
+{%- comment %}</locksmith:65dd>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 
@@ -224,14 +266,20 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 {%- endif -%}
 {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta name="twitter:description" content="{{ share_description }}">
+{%- comment %}<locksmith:fb63>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:description" content="{{ share_description }}">{% endif -%}
+  {%- comment %}original: <meta name="twitter:description" content="{{ share_description }}">{%- endcomment %}
+{%- comment %}</locksmith:fb63>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 
 {% if request.page_type == 'product' %}
   {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta name="twitter:title" content="{{ product.title }}">
+{%- comment %}<locksmith:653c>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:title" content="{{ product.title }}">{% endif -%}
+  {%- comment %}original: <meta name="twitter:title" content="{{ product.title }}">{%- endcomment %}
+{%- comment %}</locksmith:653c>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 
@@ -249,7 +297,10 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 {% elsif request.page_type == 'article' %}
   {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta name="twitter:title" content="{{ article.title }}">
+{%- comment %}<locksmith:dc5b>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:title" content="{{ article.title }}">{% endif -%}
+  {%- comment %}original: <meta name="twitter:title" content="{{ article.title }}">{%- endcomment %}
+{%- comment %}</locksmith:dc5b>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 
@@ -264,7 +315,10 @@ You can learn more about this (and learn how to cleanly revert these changes) at
 {% else %}
   {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
 {%- if disabled_by_yoast_seo -%}
-<meta name="twitter:title" content="{{ page_title }}">
+{%- comment %}<locksmith:08b9>{% endcomment -%}
+  {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="twitter:title" content="{{ page_title }}">{% endif -%}
+  {%- comment %}original: <meta name="twitter:title" content="{{ page_title }}">{%- endcomment %}
+{%- comment %}</locksmith:08b9>{% endcomment -%}
 {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
 {%- endif -%}
 
