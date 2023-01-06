@@ -91,6 +91,9 @@
                       aria-label="{{ navigation_t }}"
                     >
                       {% for link in linklists[footer_nav].links %}
+                        {%- comment %}<locksmith:0263>{% endcomment -%}
+                          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: linklists[footer_nav], variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                        {%- comment %}</locksmith:0263>{% endcomment -%}
                         <li>
                           <a href="{{ link.url }}" title="{{ link.title }}">
                             {{ link.title }}

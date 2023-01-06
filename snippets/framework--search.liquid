@@ -27,6 +27,9 @@
 	  {% assign counter = 0 | times: 0 %}
       {% assign type = '' %}
       {% for item in search.results limit: 1 %}
+        {%- comment %}<locksmith:7611>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:7611>{% endcomment -%}
         {% if item.object_type == 'product' %}
         {% assign type = 'product' %}
         {% assign counter = 0 | times: 0 %}
@@ -47,6 +50,10 @@
             {% assign found = 'false' %}
 
             {% for product in search.results %}
+
+            {%- comment %}<locksmith:160a>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:160a>{% endcomment -%}
 
             {% assign counter = counter | plus: 1 %} 
 
@@ -88,6 +95,9 @@
             <div class="search--articles">
               <div class="search--articles-container">
                 {% for item in search.results %}
+                  {%- comment %}<locksmith:c2d6>{% endcomment -%}
+                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                  {%- comment %}</locksmith:c2d6>{% endcomment -%}
                   <div class="search--article">
                     <a href="{{ item.url }}">{{ item.title }}</a>
                   </div>
@@ -196,6 +206,9 @@
 
       <div class="search--articles-container" data-item="paragraph">
         {% for item in search.results %}
+          {%- comment %}<locksmith:6ae7>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:6ae7>{% endcomment -%}
           <div class="search--article">
             <a href="{{ item.url }}">{{ item.title }}</a>
           </div>
@@ -232,6 +245,10 @@
       {% assign found = 'false' %}
 
       {% for product in search.results %}
+
+      {%- comment %}<locksmith:b083>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:b083>{% endcomment -%}
 
       {% assign counter = counter | plus: 1 %} 
 
