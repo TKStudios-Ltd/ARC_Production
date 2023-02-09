@@ -1,8 +1,14 @@
 {%- layout none -%}
 {%- paginate search.results by 100 -%}
 [
+  {%- comment %}<locksmith:e0a3>{% endcomment -%}
+    {%- assign locksmith_b5bd_forloop__size = 0 %}{%- for product in search.results -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_b5bd_forloop__size = locksmith_b5bd_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_b5bd_forloop__index = nil -%}
+  {%- comment %}</locksmith:e0a3>{% endcomment -%}
   {%- for product in search.results -%}
-    {%- unless forloop.first -%},{%- endunless -%}
+    {%- comment %}<locksmith:c1fc>{% endcomment -%}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_b5bd_forloop__index == nil %}{% assign locksmith_b5bd_forloop__index = 1 %}{% assign locksmith_b5bd_forloop__index0 = 0 %}{% else %}{% assign locksmith_b5bd_forloop__index = locksmith_b5bd_forloop__index | plus: 1 %}{% assign locksmith_b5bd_forloop__index0 = locksmith_b5bd_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_b5bd_forloop__index == 1 %}{% assign locksmith_b5bd_forloop__first = true %}{% else %}{% assign locksmith_b5bd_forloop__first = false %}{% endif %}{% if locksmith_b5bd_forloop__index == locksmith_b5bd_forloop__size %}{% assign locksmith_b5bd_forloop__last = true %}{% else %}{% assign locksmith_b5bd_forloop__last = false %}{% endif %}{% assign locksmith_b5bd_forloop__rindex = locksmith_b5bd_forloop__size | minus: locksmith_b5bd_forloop__index | minus: 1 %}{% assign locksmith_b5bd_forloop__rindex0 = locksmith_b5bd_forloop__size | minus: locksmith_b5bd_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+    {%- comment %}</locksmith:c1fc>{% endcomment -%}
+    {%- unless locksmith_b5bd_forloop__first -%},{%- endunless -%}
     {"id":{{-product.id-}},"title":{{-product.title | json-}},"available":{{-product.available-}},"image": {"src": "{{-product.featured_image.src | img_url: "40x40" |json- }}"},"variants":[{%- for variant in product.variants -%}{%- unless forloop.first -%},{%- endunless -%}{"id":{{-variant.id-}}, "title":{{-variant.title | json}},"price":{{-variant.price-}},"inventory_quantity":{{-variant.inventory_quantity-}},"inventory_policy":{{-variant.inventory_policy | json}},"tracked": {% if variant.inventory_management == null %} false {% else %} true {% endif %}}{%- endfor -%}]}
   {%- endfor -%}
 ]
